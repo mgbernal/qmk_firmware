@@ -1,7 +1,13 @@
 #include "metheon.h"
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-    return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+    state = update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+
+    #ifdef RGBLIGHT_ENABLE
+    state = layer_state_set_rgb(state);
+    #endif // RGBLIGHT_ENABLE
+
+    return state;
 };
 
 void matrix_scan_user(void) {
@@ -35,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_ADJUST] = LAYOUT_metheon(
         XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,KC_VRSN ,KC_MAKE ,KC_FLASH,
         HIBRNT  ,XXXXXXX ,KC_MPRV ,KC_MPLY ,KC_MNXT ,XXXXXXX ,RGB_TOG ,RGB_MOD ,RGB_HUI ,RGB_SAI ,RGB_VAI ,XXXXXXX ,
-        SLEEP   ,XXXXXXX ,KC_MUTE ,KC_VOLD ,KC_VOLU ,TO_BL3  ,XXXXXXX ,RGB_RMOD,RGB_HUD ,RGB_SAD ,RGB_VAD ,XXXXXXX ,
+        SLEEP   ,XXXXXXX ,KC_MUTE ,KC_VOLD ,KC_VOLU ,TO_BL3  ,RGB_M_P ,RGB_RMOD,RGB_HUD ,RGB_SAD ,RGB_VAD ,XXXXXXX ,
         XXXXXXX ,XXXXXXX ,_______ ,_______ ,_______ ,RESET   ,RESET   ,_______ ,_______ ,_______ ,XXXXXXX ,XXXXXXX ,
         ADJ_E01 ,ADJ_E02
     ),

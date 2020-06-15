@@ -1,12 +1,14 @@
 #pragma once
 
 #ifdef RGBLIGHT_ENABLE
-  #define RGBLIGHT_ANIMATIONS
-  #define RGBLIGHT_HUE_STEP 8
-  #define RGBLIGHT_SAT_STEP 8
-  #define RGBLIGHT_VAL_STEP 8
-  #define RGBLIGHT_SLEEP
-  #define RGBLIGHT_SPLIT
+    #define RGBLIGHT_ANIMATIONS
+    #define RGBLIGHT_HUE_STEP 8
+    #define RGBLIGHT_SAT_STEP 8
+    #define RGBLIGHT_VAL_STEP 8
+    #define RGBLIGHT_SLEEP
+    #define RGB_DI_PIN D3
+    #define RGBLED_SPLIT { 10, 10 }
+    #define RGBLED_NUM 20
 #endif
 
 // EC11K encoders have a different resolution than other EC11 encoders.

@@ -3,6 +3,7 @@
 #include "tap_dance.h"
 #include "process_records.h"
 #include "leader.h"
+#include "rgb.h"
 
 enum layers {
     _BASE,                  // Colemak

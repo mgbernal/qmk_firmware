@@ -15,6 +15,7 @@ SRC += encoders.c
 SRC += tap_dance.c
 SRC += process_records.c
 SRC += leader.c
+SRC += rgb.c
 
 # Disable as many features as possible
 MOUSEKEY_ENABLE					=	no  # Enables usage of keyboard as mouse
